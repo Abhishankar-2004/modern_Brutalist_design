@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 7% 88%;
+    --foreground: 7 30% 8%;
+    --card: 40 7% 88%;
+    --card-foreground: 7 30% 8%;
+    --popover: 40 7% 88%;
+    --popover-foreground: 7 30% 8%;
+    --primary: 10 90% 40%;
+    --primary-foreground: 40 7% 88%;
+    --secondary: 40 5% 82%;
+    --secondary-foreground: 7 30% 8%;
+    --muted: 40 5% 82%;
+    --muted-foreground: 7 10% 35%;
+    --accent: 110 90% 49%;
+    --accent-foreground: 7 30% 8%;
+    --destructive: 10 90% 40%;
+    --destructive-foreground: 40 7% 88%;
+    --border: 40 3% 78%;
+    --input: 40 3% 78%;
+    --ring: 10 90% 40%;
+    --radius: 0rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: multiply;
+}
+
+/* Brutalist link hover animation */
+.brutalist-link {
+  position: relative;
+  display: inline-block;
+}
+
+.brutalist-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #31EF07;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.brutalist-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Skill bar animation */
+@keyframes skill-fill {
+  from { width: 0%; }
+}
